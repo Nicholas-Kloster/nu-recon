@@ -64,3 +64,26 @@ This tool is intended for use against assets you own or are explicitly
 authorized to test. Passive lookups still generate log entries at Shodan and
 crt.sh; TLS certificate retrieval creates a connection to the target. Use
 accordingly.
+
+## Use with Claude Code
+
+Use Claude Code to run a recon report on a target IP and chain the findings into aimap, VisorGraph, or BARE.
+
+```
+Read README.md in this repo (nu-recon). Then:
+1. Run nu-recon against [target IP] and help me interpret the JSON output
+2. Extract the certificate SAN names and pivot them to additional IPs worth probing
+3. Chain the findings into aimap (AI/ML service detection) or VisorGraph (provenance mapping)
+   — tell me which tool to run next and why
+Target: [IP here]
+```
+
+```
+I have nu-recon JSON output for [IP]. Help me:
+1. Identify the most interesting signal in the threat graph / risk summary
+2. Determine if any crt.sh results reveal related infrastructure not on this IP
+3. Tell me which finding has the clearest path to impact and what to probe next
+nu-recon output: [paste JSON here]
+```
+
+---
